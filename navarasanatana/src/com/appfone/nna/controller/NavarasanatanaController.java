@@ -38,6 +38,13 @@ import com.appfone.nna.service.AdminauditionsService;
 import com.appfone.nna.service.AdminloginService;
 import com.appfone.nna.service.AdminteamService;
 import com.appfone.nna.service.RecoveryService;
+import com.appfone.nna.service.UserAdmissionService;
+import com.appfone.nna.service.UserAuditionService;
+import com.appfone.nna.service.UserFacultyService;
+import com.appfone.nna.service.UserFeedbackService;
+import com.appfone.nna.service.UserGalleryService;
+import com.appfone.nna.service.UserbannerService;
+import com.appfone.nna.service.UserteamService;
 import com.appfone.nna.util.Emailutility;
 
 @Controller
@@ -79,6 +86,27 @@ public class NavarasanatanaController {
 	
 	@Autowired
 	private AdminAddprofileService adminprofileservice;
+	
+	@Autowired
+	private UserbannerService userservice;
+	@Autowired
+	private UserteamService userteamservice;
+	
+	@Autowired
+	private UserAdmissionService useradmissionservice;
+	
+	@Autowired
+	private UserFacultyService userfacultyservice;
+	
+	@Autowired
+	private UserGalleryService usergalservice;
+	
+	@Autowired
+	private UserAuditionService useraudservice;
+	
+	@Autowired
+	private UserFeedbackService userfeedservice;
+	
 	
 	@RequestMapping(value="/admin")
 	public ModelAndView adminController()
@@ -966,6 +994,114 @@ public class NavarasanatanaController {
 		return mv;
 	}
 	
+	
+	@RequestMapping(value="/index")
+	public ModelAndView indexController()
+	{
+		List list = userservice.getBannerlist();
+		List teamlist= userteamservice.getUserTeamlist();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("userteamlist", teamlist);
+		mv.addObject("userbannerlist", list);
+		mv.setViewName("index");
+		return mv;
+	}
+	
+	@RequestMapping(value="/about-us")
+	public ModelAndView aboutusController()
+	{
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("about-us");
+		return mv;
+	}
+	
+	@RequestMapping(value="/courses")
+	public ModelAndView coursesController()
+	{
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("courses");
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/placement")
+	public ModelAndView placementController()
+	{
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("placement");
+		return mv;
+	}
+	
+	@RequestMapping(value="/auditions")
+	public ModelAndView auditionsController()
+	{
+		List list=useraudservice.getauditionsList();
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("useraudlist", list);
+		mv.setViewName("auditions");
+		return mv;
+	}
+	
+	
+
+	@RequestMapping(value="/admission")
+	public ModelAndView admissionController()
+	{
+		List list = useradmissionservice.getAdmissionForm();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("useradmissionlist", list);
+		mv.setViewName("admission");
+		return mv;
+	}
+	
+	@RequestMapping(value="/contact")
+	public ModelAndView contactController()
+	{
+		NnaFeedback feed= new NnaFeedback();
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("userfeed", feed);
+		mv.setViewName("contact");
+		return mv;
+	}
+	
+	@RequestMapping(value="/faculty")
+	public ModelAndView facultyController()
+	{
+		List list = userfacultyservice.getFacultyList();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("userfacultylist", list);
+		mv.setViewName("faculty");
+		return mv;
+	}
+	
+	@RequestMapping(value="/gallery")
+	public ModelAndView galleryController()
+	{
+		List list=usergalservice.getgalleryList();
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("usergallerylist", list);
+		mv.setViewName("gallery");
+		return mv;
+	}
+	
+	
+	@RequestMapping(value="/sendfeedback")
+	public ModelAndView sendfeedbackController(@ModelAttribute("userfeed")NnaFeedback feed)
+	{
+		userfeedservice.savefeedback(feed);
+		Emailutility.send("stepperzstudio1234@gmail.com", "FeedBack","New Feedback is come from the person whose name is "+feed.getFeed_name()+"\n" +"and his/her email is "+feed.getFeed_email()+"\n"+"and his/her Feedback subject is" +feed.getFeed_subject() +"\n" +" and his/her Feed back message is  "+feed.getFeed_msg()+"");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("indexpopup");
+		return mv;
+	}
+	
+
 	
 	
 }

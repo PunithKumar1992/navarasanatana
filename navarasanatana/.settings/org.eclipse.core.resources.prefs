@@ -1,2 +1,10 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/jsp/adminbanner.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/admission.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/auditions.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/contact.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/courses.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/faculty.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/gallery.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/index.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/placement.jsp=UTF-8
