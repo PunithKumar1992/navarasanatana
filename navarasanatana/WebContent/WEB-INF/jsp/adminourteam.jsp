@@ -287,7 +287,7 @@ function Upload() {
                     }
                     else
                     	{
-                    	 alert("Height and Width must not exceed 336px & 113px.");
+                    	 alert("Height and Width must not exceed 201px & 256px.");
                     	document.getElementById('sub').disabled = true;
           
                     	}

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
@@ -29,7 +29,7 @@
 </div>
 <!-- preloader end -->
 <!-- header menu section start -->
-<div class="headermenupad"><!--dn_header_section-->
+<div class="headermenupad" ><!--dn_header_section-->
 	<!-- header_fix_top-->
 	<div class="container">
 		<div class="row">
@@ -68,6 +68,7 @@
 		</div>
 	</div>
 </div>
+</div>
 <!-- header menu section End -->
 <section class="innerbanner">
 <div class="container">
@@ -85,7 +86,7 @@
 			<!-- figure start -->
 			<div class="about_page_sec col-lg-12">
 				<div class="con">
-                                    <img alt="" class="img-responsive" src="images/underconst.jpg">
+                                    <img alt="" class="img-responsive"   src="images/underconst.jpg" style="width:50%;margin-left: 20%">
 				
 				</div>
 			</div>
